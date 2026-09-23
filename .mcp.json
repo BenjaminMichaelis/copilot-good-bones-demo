@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "microsoft-learn": {
+      "type": "http",
+      "url": "https://learn.microsoft.com/api/mcp",
+      "tools": ["*"]
+    },
+    "aspire": {
+      "type": "local",
+      "command": "aspire",
+      "args": ["agent", "mcp"],
+      "tools": ["*"]
+    }
+  }
+}
