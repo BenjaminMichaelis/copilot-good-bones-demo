@@ -1,0 +1,10 @@
+<Solution>
+  <Project Path="SessionBoard.AppHost/SessionBoard.AppHost.csproj" />
+  <Folder Name="/src/">
+    <Project Path="src/SessionBoard.Api/SessionBoard.Api.csproj" />
+    <Project Path="src/SessionBoard.ServiceDefaults/SessionBoard.ServiceDefaults.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/SessionBoard.Api.Tests/SessionBoard.Api.Tests.csproj" />
+  </Folder>
+</Solution>
