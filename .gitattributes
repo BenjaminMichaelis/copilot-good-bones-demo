@@ -1,0 +1,7 @@
+# Enforce LF line endings for all text files, matching .editorconfig's
+# `end_of_line = lf` (adopted from BenjaminMichaelis/DotnetTemplates).
+# Without this, a machine with core.autocrlf=true silently re-introduces
+# CRLF on every checkout, which makes the strict-format verification hook
+# (scripts/hooks/verify-build.ps1 -> Invoke-DotNetFormatStrict.ps1) flag
+# every existing file as a false positive instead of only new violations.
+* text=auto eol=lf

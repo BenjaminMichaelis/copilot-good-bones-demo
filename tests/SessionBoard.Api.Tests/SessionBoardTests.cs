@@ -1,6 +1,8 @@
 using System.Net;
 using System.Net.Http.Json;
+
 using Microsoft.AspNetCore.Mvc.Testing;
+
 using SessionBoard.Api;
 
 namespace SessionBoard.Api.Tests;
@@ -82,5 +84,6 @@ public class SessionBoardTests : IDisposable
     {
         _client.Dispose();
         _factory.Dispose();
+        GC.SuppressFinalize(this);
     }
 }

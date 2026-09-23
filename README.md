@@ -22,3 +22,23 @@ Available endpoints:
 ```powershell
 dotnet test
 ```
+
+## Good bones come from
+
+This repo's build-level conventions (`.editorconfig`, `Directory.Build.props`,
+`Directory.Packages.props`, and the strict-format check wired into
+`scripts/hooks/verify-build.ps1`/`.sh`) are adopted from the speaker's own
+OSS template pack:
+[BenjaminMichaelis/DotnetTemplates](https://github.com/BenjaminMichaelis/DotnetTemplates)
+(NuGet: `BenjaminMichaelis.Dotnet.Templates`).
+
+```powershell
+dotnet new install BenjaminMichaelis.Dotnet.Templates
+dotnet new bmichaelis.quickstart.consoleapp
+```
+
+The seeded "dated" patterns in this repo (Newtonsoft.Json, `DateTime.Now`,
+mutable DTO classes, `.Result`, a string-concatenated filter, an
+unauthenticated `DELETE`) are intentional and left in place for the talk —
+adopting these conventions catches *new* dated code without silently
+"fixing" the examples the talk depends on.

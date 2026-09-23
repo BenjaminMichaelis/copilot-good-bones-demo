@@ -1,0 +1,37 @@
+<Project>
+
+  <!--
+    Modern build defaults adopted from BenjaminMichaelis/DotnetTemplates
+    (templates/Quickstart/ConsoleApp/Directory.Build.props) — see the
+    "Good bones come from" section in README.md. The placeholder
+    UserSecretsId group from that template is intentionally dropped; this
+    demo has no secrets to manage.
+  -->
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>14</LangVersion>
+  </PropertyGroup>
+
+  <!--
+    House-rule enforcement (L5). New code that trips these rules fails the
+    build; the seeded L0 dated-code smells (Newtonsoft.Json, DateTime.Now)
+    are suppressed inline with #pragma warning disable RS0030 at their exact
+    call sites (see SessionStore.cs, Program.cs) so they stay green today
+    but stay VISIBLE for the talk instead of being silently allow-listed
+    project-wide. Anyone adding a NEW Newtonsoft/DateTime.Now usage gets a
+    build error, not a warning that's easy to ignore.
+
+    Note what this deliberately does NOT catch: the string-concatenated
+    DataTable filter in SpeakerNotesService and the unauthenticated DELETE
+    in Program.cs are semantic/design issues, not banned-API usages — no
+    analyzer flags them. That's why L3's security-auditor agent exists:
+    static analysis catches syntax, an agent with judgment catches intent.
+  -->
+  <PropertyGroup>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+  </PropertyGroup>
+
+</Project>

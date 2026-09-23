@@ -1,0 +1,6 @@
+// House rules enforced at compile time (see .github/copilot-instructions.md).
+// New code that references these symbols fails the build. Existing seeded
+// usages are explicitly suppressed inline with #pragma warning disable RS0030
+// so the dated patterns stay visible for the talk instead of being deleted.
+N:Newtonsoft.Json;House rule: use System.Text.Json, not Newtonsoft.Json
+P:System.DateTime.Now;House rule: inject TimeProvider instead of DateTime.Now

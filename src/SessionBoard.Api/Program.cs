@@ -1,5 +1,7 @@
 using Newtonsoft.Json;
+
 using Scalar.AspNetCore;
+
 using SessionBoard.Api;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,8 +22,10 @@ if (app.Environment.IsDevelopment())
 
 app.MapGet("/sessions", (SessionStore store) => Results.Ok(store.GetSessionsAsync().Result));
 
+#pragma warning disable RS0030 // seeded dated code — kept intentionally for the talk, see BannedSymbols.txt
 app.MapGet("/sessions/export", (SessionStore store) =>
     Results.Content(JsonConvert.SerializeObject(store.GetSessions()), "application/json"));
+#pragma warning restore RS0030
 
 app.MapGet("/sessions/{id:int}", (int id, SessionStore store) =>
     store.FindSession(id) is { } session ? (IResult)Results.Ok(session) : Results.NotFound());

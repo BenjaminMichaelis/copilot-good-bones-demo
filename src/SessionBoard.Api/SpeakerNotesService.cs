@@ -2,6 +2,7 @@ using System.Data;
 
 namespace SessionBoard.Api
 {
+#pragma warning disable CA1001 // seeded dated code — undisposed DataTable field, kept intentionally for the talk
     public class SpeakerNotesService
     {
         private readonly DataTable _notes = new();
@@ -21,4 +22,5 @@ namespace SessionBoard.Api
             return _notes.Select(filter).Select(row => (string)row["Note"]).ToList();
         }
     }
+#pragma warning restore CA1001
 }

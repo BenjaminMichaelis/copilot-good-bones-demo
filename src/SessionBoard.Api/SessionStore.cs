@@ -3,12 +3,14 @@ namespace SessionBoard.Api
     public class SessionStore
     {
         private readonly object _sync = new();
+#pragma warning disable RS0030 // seeded dated code — kept intentionally for the talk, see BannedSymbols.txt
         private readonly List<SessionDto> _sessions = new List<SessionDto>
         {
             new SessionDto { Id = 1, Title = "Opening the Conference", Speaker = "Speaker A", Room = "Main Hall", StartsAt = DateTime.Now.AddHours(1) },
             new SessionDto { Id = 2, Title = "Building Reliable APIs", Speaker = "Speaker B", Room = "Room 1", StartsAt = DateTime.Now.AddHours(2) },
             new SessionDto { Id = 3, Title = "Testing in Practice", Speaker = "Speaker C", Room = "Room 2", StartsAt = DateTime.Now.AddHours(3) }
         };
+#pragma warning restore RS0030
         private readonly List<SpeakerDto> _speakers = new List<SpeakerDto>
         {
             new SpeakerDto { Id = 1, Name = "Speaker A" },

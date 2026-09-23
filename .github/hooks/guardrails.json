@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "type": "command",
+        "powershell": "& \"scripts/hooks/deny-newtonsoft.ps1\"",
+        "bash": "bash scripts/hooks/deny-newtonsoft.sh",
+        "timeoutSec": 15
+      },
+      {
+        "type": "command",
+        "powershell": "& \"scripts/hooks/deny-secrets.ps1\"",
+        "bash": "bash scripts/hooks/deny-secrets.sh",
+        "timeoutSec": 15
+      }
+    ],
+    "postToolUse": [
+      {
+        "type": "command",
+        "powershell": "& \"scripts/hooks/verify-build.ps1\"",
+        "bash": "bash scripts/hooks/verify-build.sh",
+        "timeoutSec": 60
+      }
+    ],
+    "agentStop": [
+      {
+        "type": "command",
+        "powershell": "& \"scripts/hooks/verify-tests.ps1\"",
+        "bash": "bash scripts/hooks/verify-tests.sh",
+        "timeoutSec": 180
+      }
+    ]
+  }
+}
