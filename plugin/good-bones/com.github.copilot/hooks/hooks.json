@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "type": "command",
+        "powershell": "& \"${PLUGIN_ROOT}/com.github.copilot/hooks/scripts/deny-newtonsoft.ps1\"",
+        "bash": "bash \"${PLUGIN_ROOT}/com.github.copilot/hooks/scripts/deny-newtonsoft.sh\"",
+        "timeoutSec": 15
+      },
+      {
+        "type": "command",
+        "powershell": "& \"${PLUGIN_ROOT}/com.github.copilot/hooks/scripts/deny-secrets.ps1\"",
+        "bash": "bash \"${PLUGIN_ROOT}/com.github.copilot/hooks/scripts/deny-secrets.sh\"",
+        "timeoutSec": 15
+      }
+    ],
+    "postToolUse": [
+      {
+        "type": "command",
+        "powershell": "& \"${PLUGIN_ROOT}/com.github.copilot/hooks/scripts/verify-build.ps1\"",
+        "bash": "bash \"${PLUGIN_ROOT}/com.github.copilot/hooks/scripts/verify-build.sh\"",
+        "timeoutSec": 60
+      }
+    ],
+    "agentStop": [
+      {
+        "type": "command",
+        "powershell": "& \"${PLUGIN_ROOT}/com.github.copilot/hooks/scripts/verify-tests.ps1\"",
+        "bash": "bash \"${PLUGIN_ROOT}/com.github.copilot/hooks/scripts/verify-tests.sh\"",
+        "timeoutSec": 180
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "good-bones",
+  "description": "Modern .NET 10 / C# 14 house-rules bundle for SessionBoard-style minimal APIs: an add-endpoint skill, a read-only security-auditor agent, and guardrail hooks that deny new Newtonsoft.Json usage and hard-coded secrets, surface build breaks after each edit, and keep the agent working until dotnet test is green.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "keywords": ["dotnet", "minimal-api", "security", "guardrails", "csharp"]
+}
